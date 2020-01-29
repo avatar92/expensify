@@ -5,6 +5,7 @@ import getVisibleExpenses from '../selectors/expenses.js'
 
 export const ExpenseList=(props)=>(
   <div>
+    {console.log(props)}
     {props.expenses.length===0?(
       <p>No Expenses</p>
     ):(
