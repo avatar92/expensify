@@ -4,13 +4,13 @@ import {EditExpensePage} from '../../components/EditExpensePage';
 import expenses from '../fixture/expenses';
 
 
-let editExpense,removeId,history,wrapper;
+let editExpense,startRemoveId,history,wrapper;
 
 beforeEach(()=>{
   editExpense=jest.fn();
-  removeId=jest.fn();
+  startRemoveId=jest.fn();
   history={push:jest.fn()};
-  wrapper=shallow(<EditExpensePage editExpense={editExpense} removeId={removeId} history={history} expense={expenses[2]} />)
+  wrapper=shallow(<EditExpensePage editExpense={editExpense} startRemoveId={startRemoveId} history={history} expense={expenses[2]} />)
 });
 
 test('should render EditExpensePage snapshot',()=>{
@@ -24,6 +24,6 @@ test('should handle editExpense',()=>{
 test('should handle removeId',()=>{
   wrapper.find('button').simulate('click');
   expect(history.push).toHaveBeenCalledWith('/');
-  expect(removeId).toHaveBeenCalledWith(expenses[2].id)
+  expect(startRemoveId).toHaveBeenCalledWith(expenses[2].id)
 });
 

@@ -30,6 +30,14 @@ export const removeId=(id)=>({
   id,
 });
 
+export const startRemoveId=(id)=>{
+  return (dispatch)=>{
+    return database.ref(`expenses/${id}`).remove().then(()=>{
+      dispatch(removeId(id))
+    })
+  };
+}
+
 export const editExpense=(id,updates)=>({
   type:"EDIT_EXPENSE",
   id,
