@@ -2,7 +2,6 @@ import React from 'react';
 import ExpenseForm from './ExpenseForm.js';
 import {connect} from 'react-redux';
 import {startAddExpense} from '../actions/expenses.js';
-
 export class AddExpensePage extends React.Component {
   onSubmit=(expense)=>{
     this.props.startAddExpense(expense);
